@@ -11,7 +11,7 @@ var TutorialComponent = (function () {
     function TutorialComponent() {
         this.title = "This TEDU Angular2 Tutorial component";
     }
-    // #name là khai báo 1 biến cho angular quản lý
+    // #name là 1 biến tham chiếu, ở đây nó tham chiếu đến element input và lấy value ra
     TutorialComponent.prototype.OnClick = function () {
         console.log("Click me");
     };
