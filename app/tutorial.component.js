@@ -11,17 +11,10 @@ var TutorialComponent = (function () {
     function TutorialComponent() {
         this.title = "This TEDU Angular2 Tutorial component";
     }
-    // #name là khai báo 1 biến cho angular quản lý
-    TutorialComponent.prototype.OnClick = function () {
-        console.log("Click me");
-    };
-    TutorialComponent.prototype.OnClick1 = function (value) {
-        console.log(value);
-    };
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "\n    <h2> {{title}} </h2>\n    <button (click)=\"OnClick()\" >Click me</button> <br/>\n    <button (click)=\"OnClick1(name.value)\" >Click to display input</button> \n    <input type=\"text\" #name /> <br/>\n    <button (click)=\"OnClick1($event)\" >Click event</button>\n    "
+            template: "\n    <h2> {{title}} </h2>\n    <input type=\"text\" [(ngModel)] = \"fname\" /> \n    <input type=\"text\" [(ngModel)] = \"lname\" /> \n    <br/>\n    Full name: {{fname}} {{lname}}\n    "
         })
     ], TutorialComponent);
     return TutorialComponent;
