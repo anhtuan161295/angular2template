@@ -10,14 +10,22 @@ var core_1 = require("@angular/core");
 var TutorialComponent = (function () {
     function TutorialComponent() {
         this.title = "This TEDU Angular2 Tutorial component";
-        this.showLineIf = true;
-        this.color = "23223";
-        this.colors = ["red", "green", "blue"];
+        this.cone = true;
+        this.ctwo = true;
+        this.style = "italic";
+        this.size = "30px";
     }
+    TutorialComponent.prototype.toggle = function () {
+        this.cone = !this.cone;
+        this.ctwo = !this.ctwo;
+    };
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "\n    <h2> {{title}} </h2>\n    <h3 *ngIf=\"showLineIf\" >This ngIf directive line.</h3>\n    <div [ngSwitch]=\"color\" >\n        <p *ngSwitchCase=\"'red'\" >This line color is red</p>\n        <p *ngSwitchCase=\"'blue'\" >This line color is blue</p>\n        <p *ngSwitchCase=\"'green'\" >This line color is green</p>\n        <p *ngSwitchDefault >Invalid color</p>\n    </div>\n\n    <ul>\n        <li *ngFor=\"let color of colors\" >{{color}}</li>\n    </ul>\n    "
+            template: "\n    <h2> {{title}} </h2>\n    <p [ngClass]=\"{classOne:cone, classTwo:ctwo}\" >This ngClass apply style</p>\n    <button (click)=\"toggle()\">Toggle</button>\n    <p [ngStyle]=\"{'font-style':style, 'font-size':size}\" >This paragraph will be apply to ngStyle</p>\n    ",
+            styles: [
+                "\n        .classOne{\n            color:white;\n        }\n        .classTwo{\n            background-color:black;\n        }\n        "
+            ]
         })
     ], TutorialComponent);
     return TutorialComponent;
