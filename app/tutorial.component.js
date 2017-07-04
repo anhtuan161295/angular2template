@@ -13,8 +13,7 @@ var TutorialComponent = (function () {
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "<h2>This TEDU Angular2 Tutorial component</h2>\n              <h4>Sub Component</h4>\n    "
-            // styles: ['h2 {color:green}']
+            template: "<h2>This TEDU Angular2 Tutorial component</h2>"
         })
     ], TutorialComponent);
     return TutorialComponent;
