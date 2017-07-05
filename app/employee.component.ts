@@ -12,7 +12,14 @@ export class EmployeeListComponent implements OnInit {
 
     }
     ngOnInit() {
-        this.employees = this.employeeService.GetList();
+        // lấy json, subscribe để gán json vào biến response và gắn vào list employees
+        this.employeeService.GetList().subscribe((response: any) => {
+            this.employees = response;
+            console.log(response);
+        }, error => {
+            console.log(error);
+        }
+        );
     }
 
 }

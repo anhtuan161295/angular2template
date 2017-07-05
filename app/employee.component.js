@@ -16,7 +16,14 @@ var EmployeeListComponent = (function () {
         this.employeeService = employeeService;
     }
     EmployeeListComponent.prototype.ngOnInit = function () {
-        this.employees = this.employeeService.GetList();
+        var _this = this;
+        // lấy json, subscribe để gán json vào biến response và gắn vào list employees
+        this.employeeService.GetList().subscribe(function (response) {
+            _this.employees = response;
+            console.log(response);
+        }, function (error) {
+            console.log(error);
+        });
     };
     EmployeeListComponent = __decorate([
         core_1.Component({
