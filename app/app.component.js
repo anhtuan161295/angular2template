@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.cities = [{ Id: 1, Name: "Ha Noi" }, { Id: 2, Name: "HCM" }];
     }
     AppComponent.prototype.onSubmit = function (value) {
         console.log(value);
