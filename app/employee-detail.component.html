@@ -1,4 +1,4 @@
-<table class="table" *ngIf="employee" >
+<table class="table" *ngIf="employee">
     <tr>
         <td>Id</td>
         <td>{{employee.id}}</td>
@@ -15,5 +15,5 @@
         <td>Status</td>
         <td>{{employee.status}}</td>
     </tr>
-    
 </table>
+<a class="btn btn-default" [routerLink]="['/employees']">Go back</a>
