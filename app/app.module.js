@@ -15,13 +15,14 @@ var employee_service_1 = require("./services/employee.service");
 var home_component_1 = require("./home.component");
 var http_1 = require("@angular/http");
 var app_routes_1 = require("./app.routes");
+var notfound_component_1 = require("./notfound.component");
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routes_1.appRoutes],
-            declarations: [app_component_1.AppComponent, employee_component_1.EmployeeListComponent, home_component_1.HomeComponent],
+            declarations: [app_component_1.AppComponent, employee_component_1.EmployeeListComponent, home_component_1.HomeComponent, notfound_component_1.NotFoundComponent],
             providers: [employee_service_1.EmployeeService],
             bootstrap: [app_component_1.AppComponent]
         })
