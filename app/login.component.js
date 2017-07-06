@@ -11,28 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var EmployeeOverviewComponent = (function () {
-    function EmployeeOverviewComponent(router, activateRoute) {
+var login_service_1 = require("./services/login.service");
+var LoginComponent = (function () {
+    function LoginComponent(router, loginService) {
         this.router = router;
-        this.activateRoute = activateRoute;
+        this.loginService = loginService;
     }
-    EmployeeOverviewComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.sub = this.activateRoute.parent.params.subscribe(function (params) {
-            _this.parentRouterId = params['id'];
-            // alert('child get id: '+this.parentRouterId);
-        });
+    LoginComponent.prototype.CheckLogin = function (value) {
+        console.log(value);
+        if (value.username == "admin" && value.password == "123") {
+            this.loginService.SetLogin(true);
+            this.router.navigate(['/']);
+        }
     };
-    EmployeeOverviewComponent.prototype.ngOnDestroy = function () {
-    };
-    EmployeeOverviewComponent = __decorate([
+    LoginComponent = __decorate([
         core_1.Component({
-            selector: 'employee-overview-component',
-            template: "\n    <h3>Overview employee</h3>\n    "
+            selector: 'login-component',
+            templateUrl: '/app/login.component.html'
         }),
-        __metadata("design:paramtypes", [router_1.Router, router_1.ActivatedRoute])
-    ], EmployeeOverviewComponent);
-    return EmployeeOverviewComponent;
+        __metadata("design:paramtypes", [router_1.Router, login_service_1.LoginService])
+    ], LoginComponent);
+    return LoginComponent;
 }());
-exports.EmployeeOverviewComponent = EmployeeOverviewComponent;
-//# sourceMappingURL=employee-overview.component.js.map
+exports.LoginComponent = LoginComponent;
+//# sourceMappingURL=login.component.js.map
