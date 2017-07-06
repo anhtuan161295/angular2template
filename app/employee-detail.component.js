@@ -34,6 +34,7 @@ var EmployeeDetailComponent = (function () {
         this.router.navigate(['employees']);
     };
     EmployeeDetailComponent.prototype.ngOnDestroy = function () {
+        // Angular mới nhất đã tự động unsubscribe nên ko cần gọi unsubscribe nữa
     };
     EmployeeDetailComponent = __decorate([
         core_1.Component({

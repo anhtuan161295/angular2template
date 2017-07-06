@@ -9,7 +9,7 @@ import { EmployeeService } from './services/employee.service';
     providers: [EmployeeService]
 })
 
-export class EmployeeDetailComponent implements OnInit {
+export class EmployeeDetailComponent implements OnInit, OnDestroy {
     public _id: number;
     public subscription: any;
     public employee: any;
@@ -34,6 +34,6 @@ export class EmployeeDetailComponent implements OnInit {
         this.router.navigate(['employees']);
     }
     ngOnDestroy() {
-
+        // Angular mới nhất đã tự động unsubscribe nên ko cần gọi unsubscribe nữa
     }
 }
