@@ -27,4 +27,8 @@ export class EmployeeService {
         // Lấy dữ liệu từ url, map vào biến response và trả về json
         return this._http.post(this.apiUrl, data).map((response: Response) => response.json());
     }
+    Delete(id: number): Observable<any> {
+        // Lấy dữ liệu từ url, map vào biến response và trả về json
+        return this._http.delete(this.apiUrl + "/" + id).map((response: Response) => response.json());
+    }
 }

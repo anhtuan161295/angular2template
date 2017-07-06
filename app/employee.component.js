@@ -25,6 +25,23 @@ var EmployeeListComponent = (function () {
             // console.log(this.currentPage);
             // console.log(params['filter']);
         });
+        this.LoadData();
+        this.pages = [1, 2, 3, 4, 5];
+    };
+    EmployeeListComponent.prototype.Delete = function (id) {
+        var _this = this;
+        var confirmResult = confirm('Are you sure to delete employee?');
+        if (confirmResult) {
+            this.employeeService.Delete(id).subscribe(function (response) {
+                if (response) {
+                    alert('Delete success');
+                    _this.LoadData();
+                }
+            });
+        }
+    };
+    EmployeeListComponent.prototype.LoadData = function () {
+        var _this = this;
         // lấy json, subscribe để gán json vào biến response và gắn vào list employees
         this.employeeService.GetList().subscribe(function (response) {
             _this.employees = response;
@@ -32,7 +49,6 @@ var EmployeeListComponent = (function () {
         }, function (error) {
             console.log(error);
         });
-        this.pages = [1, 2, 3, 4, 5];
     };
     EmployeeListComponent = __decorate([
         core_1.Component({
