@@ -8,11 +8,15 @@ import { EmployeeOverviewComponent } from './employee-overview.component';
 import { LoginComponent } from './login.component';
 import { CheckLoginGuard } from './guards/check-login.guard';
 import { CheckSaveFormGuard } from './guards/check-save-form.guard';
+import { EmployeeEditComponent } from './employee-edit.component';
+import { EmployeeAddComponent } from './employee-add.component';
 
 const routing: Routes = [
     { path: '', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'employees', component: EmployeeListComponent },
+    { path: 'employee-add', component: EmployeeAddComponent },
+    { path: 'employee-edit/:id', component: EmployeeEditComponent },
     {
         path: 'employee-detail/:id', component: EmployeeDetailComponent,
         children: [

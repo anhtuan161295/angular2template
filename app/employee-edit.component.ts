@@ -4,12 +4,12 @@ import { Subscription } from 'rxjs';
 import { EmployeeService } from './services/employee.service';
 
 @Component({
-    selector: 'employee-detail-component',
-    templateUrl: '/app/employee-detail.component.html',
+    selector: 'employee-edit-component',
+    templateUrl: '/app/employee-edit.component.html',
     providers: [EmployeeService]
 })
 
-export class EmployeeDetailComponent implements OnInit, OnDestroy {
+export class EmployeeEditComponent implements OnInit, OnDestroy {
     public _id: number;
     public subscription: any;
     public employee: any;
@@ -32,6 +32,13 @@ export class EmployeeDetailComponent implements OnInit, OnDestroy {
     }
     GotoEmployee() {
         this.router.navigate(['employees']);
+    }
+    SaveForm(){
+        this.employeeService.Update(this._id,this.employee).subscribe(response=>{
+            if(response){
+                alert('Update Success');
+            }
+        })
     }
     ngOnDestroy() {
         // Angular mới nhất đã tự động unsubscribe nên ko cần gọi unsubscribe nữa

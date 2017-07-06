@@ -12,13 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var employee_service_1 = require("./services/employee.service");
-var EmployeeDetailComponent = (function () {
-    function EmployeeDetailComponent(router, activatedRoute, employeeService) {
+var EmployeeEditComponent = (function () {
+    function EmployeeEditComponent(router, activatedRoute, employeeService) {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.employeeService = employeeService;
     }
-    EmployeeDetailComponent.prototype.ngOnInit = function () {
+    EmployeeEditComponent.prototype.ngOnInit = function () {
         var _this = this;
         // Lấy id từ url param
         this.subscription = this.activatedRoute.params.subscribe(function (params) {
@@ -30,23 +30,30 @@ var EmployeeDetailComponent = (function () {
             // console.log(data);
         });
     };
-    EmployeeDetailComponent.prototype.GotoEmployee = function () {
+    EmployeeEditComponent.prototype.GotoEmployee = function () {
         this.router.navigate(['employees']);
     };
-    EmployeeDetailComponent.prototype.ngOnDestroy = function () {
+    EmployeeEditComponent.prototype.SaveForm = function () {
+        this.employeeService.Update(this._id, this.employee).subscribe(function (response) {
+            if (response) {
+                alert('Update Success');
+            }
+        });
+    };
+    EmployeeEditComponent.prototype.ngOnDestroy = function () {
         // Angular mới nhất đã tự động unsubscribe nên ko cần gọi unsubscribe nữa
     };
-    EmployeeDetailComponent = __decorate([
+    EmployeeEditComponent = __decorate([
         core_1.Component({
-            selector: 'employee-detail-component',
-            templateUrl: '/app/employee-detail.component.html',
+            selector: 'employee-edit-component',
+            templateUrl: '/app/employee-edit.component.html',
             providers: [employee_service_1.EmployeeService]
         }),
         __metadata("design:paramtypes", [router_1.Router,
             router_1.ActivatedRoute,
             employee_service_1.EmployeeService])
-    ], EmployeeDetailComponent);
-    return EmployeeDetailComponent;
+    ], EmployeeEditComponent);
+    return EmployeeEditComponent;
 }());
-exports.EmployeeDetailComponent = EmployeeDetailComponent;
-//# sourceMappingURL=employee-detail.component.js.map
+exports.EmployeeEditComponent = EmployeeEditComponent;
+//# sourceMappingURL=employee-edit.component.js.map

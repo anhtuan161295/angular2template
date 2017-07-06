@@ -19,13 +19,13 @@ export class EmployeeListComponent implements OnInit {
     ngOnInit() {
         this.activatedRoute.queryParams.subscribe(params => {
             this.currentPage = params['pageNumber'] || 1;
-            console.log(this.currentPage);
-            console.log(params['filter']);
+            // console.log(this.currentPage);
+            // console.log(params['filter']);
         });
         // lấy json, subscribe để gán json vào biến response và gắn vào list employees
         this.employeeService.GetList().subscribe((response: any) => {
             this.employees = response;
-            console.log(response);
+            // console.log(response);
         }, error => {
             console.log(error);
         }

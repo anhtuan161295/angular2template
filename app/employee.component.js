@@ -22,13 +22,13 @@ var EmployeeListComponent = (function () {
         var _this = this;
         this.activatedRoute.queryParams.subscribe(function (params) {
             _this.currentPage = params['pageNumber'] || 1;
-            console.log(_this.currentPage);
-            console.log(params['filter']);
+            // console.log(this.currentPage);
+            // console.log(params['filter']);
         });
         // lấy json, subscribe để gán json vào biến response và gắn vào list employees
         this.employeeService.GetList().subscribe(function (response) {
             _this.employees = response;
-            console.log(response);
+            // console.log(response);
         }, function (error) {
             console.log(error);
         });

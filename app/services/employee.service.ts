@@ -19,4 +19,12 @@ export class EmployeeService {
         // Lấy dữ liệu từ url, map vào biến response và trả về json
         return this._http.get(this.apiUrl + "/" + id).map((response: Response) => response.json());
     }
+    Update(id: number, data: any): Observable<any> {
+        // Lấy dữ liệu từ url, map vào biến response và trả về json
+        return this._http.put(this.apiUrl + "/" + id, data).map((response: Response) => response.json());
+    }
+    Add(data: any): Observable<any> {
+        // Lấy dữ liệu từ url, map vào biến response và trả về json
+        return this._http.post(this.apiUrl, data).map((response: Response) => response.json());
+    }
 }
