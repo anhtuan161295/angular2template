@@ -11,6 +11,7 @@ export class EmployeeListComponent implements OnInit {
     public employees: any[];
     public pages: number[];
     public currentPage: number;
+    public keyword: string;
     constructor(private employeeService: EmployeeService,
         private router: Router, private activatedRoute: ActivatedRoute
     ) {
@@ -24,6 +25,14 @@ export class EmployeeListComponent implements OnInit {
         });
         this.LoadData();
         this.pages = [1, 2, 3, 4, 5];
+    }
+    Search() {
+        this.employeeService.Search(this.keyword).subscribe((response: any) => {
+            this.employees = response;
+            // console.log(response);
+        }, error => {
+            console.log(error);
+        });
     }
     Delete(id: number) {
         let confirmResult = confirm('Are you sure to delete employee?');
