@@ -8,10 +8,17 @@ import { HomeComponent } from './home.component';
 import { HttpModule } from "@angular/http";
 import { appRoutes } from './app.routes';
 import { NotFoundComponent } from './notfound.component';
+import { EmployeeDetailComponent } from './employee-detail.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule, appRoutes ],
-  declarations: [ AppComponent, EmployeeListComponent, HomeComponent, NotFoundComponent ],
+  declarations: [ 
+    AppComponent, 
+    EmployeeListComponent, 
+    HomeComponent, 
+    NotFoundComponent, 
+    EmployeeDetailComponent 
+    ],
   providers:    [ EmployeeService ] ,
   bootstrap:    [ AppComponent ]
 })

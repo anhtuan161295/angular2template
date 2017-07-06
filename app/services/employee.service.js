@@ -21,6 +21,10 @@ var EmployeeService = (function () {
         // Lấy dữ liệu từ url, map vào biến response và trả về json
         return this._http.get(this.apiUrl).map(function (response) { return response.json(); });
     };
+    EmployeeService.prototype.GetSingle = function (id) {
+        // Lấy dữ liệu từ url, map vào biến response và trả về json
+        return this._http.get(this.apiUrl + "/" + id).map(function (response) { return response.json(); });
+    };
     EmployeeService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
